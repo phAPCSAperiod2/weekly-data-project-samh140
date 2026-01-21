@@ -4,97 +4,104 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * AP CSA - Weekly Data Analyzer (Arrays & OOP Assessment)
- * JUnit tests for WeeklyData.java
+ * SleepHoursDataTest.java
+ * Author: Sam Ho
+ * Collaborator: CoPilot
+ * 
+ * This test class contains comprehensive unit tests for the SleepHoursData class.
+ * It validates all core functionality including:
+ *  - Constructor deep copy (ensures internal array does not alias the input)
+ *  - getTotal(): calculates the sum of all sleep hours
+ *  - getAverage(): calculates mean sleep hours per night
+ *  - getMax(): finds the highest single night's sleep
+ *  - getMin(): finds the lowest single night's sleep
+ *  - toString(): formats data for display
  *
- * This test class validates:
- *  - Constructor deep copy (internal array must NOT alias the input).
- *  - getTotal(): sum of values.
- *  - getAverage(): total / length.
- *  - getMax(): maximum value.
- *  - getMin(): minimum value.
- *  - toString(): one day per line, labeled and readable.
- *
- * Assumptions:
- *  - Arrays are non-empty for core tests.
- *  - Optional tests included for empty-array behavior.
+ * Each test uses representative data to ensure the SleepHoursData class
+ * functions correctly under normal and edge case scenarios.
  */
 class WeeklyDataTest {
 
-    // -------------------------------------------------
-    // Constructor Deep Copy Tests
-    // -------------------------------------------------
+    // Tests that constructor creates a deep copy, preventing external array modifications
+    // from affecting the internal data
     @Test
     void constructor_makesDeepCopy_notAliasingInput() {
+        // Initialize input array with test data
         double[] input = {10.0, 20.0, 30.0};
-        WeeklyData wd = new WeeklyData(input);
+        SleepHoursData wd = new SleepHoursData(input);
 
+        // Store the original total before modifying the input array
         double originalTotal = wd.getTotal();
 
-        // Mutate original array after construction
+        // Modify the original array after construction
         input[0] = 9999.0;
 
+        // Assert that modifying the input array did not affect the SleepHoursData object
+        // The total should remain unchanged, proving the deep copy was successful
         assertEquals(
                 originalTotal,
                 wd.getTotal(),
                 1e-9,
-                "WeeklyData must deep-copy the input array. External changes should not affect internal data."
+                "SleepHoursData must deep-copy the input array. External changes should not affect internal data."
         );
     }
 
+    // Tests that constructor correctly copies all array elements and maintains proper length
     @Test
     void constructor_copiesAllElements_correctLength() {
+        // Create test data with decimal values
         double[] input = {5.5, 10.0, 20.25};
-        WeeklyData wd = new WeeklyData(input);
+        SleepHoursData wd = new SleepHoursData(input);
 
         assertEquals(35.75, wd.getTotal(), 1e-9);
     }
 
-    // -------------------------------------------------
-    // getTotal Tests
-    // -------------------------------------------------
+    // Tests the getTotal() method with typical values
     @Test
     void getTotal_typicalValues() {
+        // Create test data representing a week of sleep hours
         double[] input = {100, 200, 300};
-        WeeklyData wd = new WeeklyData(input);
+        SleepHoursData wd = new SleepHoursData(input);
 
         assertEquals(600.0, wd.getTotal(), 1e-9);
     }
 
+    // Tests getTotal() with a single data point
     @Test
     void getTotal_singleValue() {
+        // Create test data with one sleep value
         double[] input = {42.5};
-        WeeklyData wd = new WeeklyData(input);
+        SleepHoursData wd = new SleepHoursData(input);
 
         assertEquals(42.5, wd.getTotal(), 1e-9);
     }
 
-    // -------------------------------------------------
-    // getAverage Tests
-    // -------------------------------------------------
+    // Tests the getAverage() method with typical values
     @Test
     void getAverage_typicalValues() {
+        // Create test data that produces a clean average
         double[] input = {2, 4, 6, 8};
-        WeeklyData wd = new WeeklyData(input);
+        SleepHoursData wd = new SleepHoursData(input);
 
         assertEquals(5.0, wd.getAverage(), 1e-9);
     }
 
+    // Tests getAverage() when result is a decimal value
     @Test
     void getAverage_decimalResult() {
+        // Create test data that results in a decimal average
         double[] input = {1, 2, 3};
-        WeeklyData wd = new WeeklyData(input);
+        SleepHoursData wd = new SleepHoursData(input);
 
         assertEquals(2.0, wd.getAverage(), 1e-9);
     }
 
-    // -------------------------------------------------
-    // getMax Tests
-    // -------------------------------------------------
+    // Tests the getMax() method to ensure it correctly finds the highest value
     @Test
     void getMax_typicalValues() {
+        // Create test data with mixed values to find maximum
         double[] input = {10, 50, 30, 75, 25};
-        WeeklyData wd = new WeeklyData(input);
+        SleepHoursData wd = new SleepHoursData(input);
 
         assertEquals(75.0, wd.getMax(), 1e-9);
     }
