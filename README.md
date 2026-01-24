@@ -54,12 +54,57 @@ Follow the prompts to:
 Welcome to this program! We will help you analyze your sleep patterns over the week.
 Please enter your sleep hours for this day 1: 8.5
 Please enter your sleep hours for this day 2: 7.0
-...
-Weekly Summary:
-Total Sleep: 52.5 hours
-Average Sleep: 7.5 hours per night
-Highest Day: 9.0 hours
-Lowest Day: 6.0 hours
+Please enter your sleep hours for this day 3: 9.0
+Please enter your sleep hours for this day 4: 6.5
+Please enter your sleep hours for this day 5: 8.0
+Please enter your sleep hours for this day 6: 7.5
+Please enter your sleep hours for this day 7: 8.2
+What data would you like to see?
+1. Total sleep hours
+2. Average sleep hours
+3. Minimum sleep hours
+4. Maximum sleep hours
+5. Show Data
+6. Quit
+Enter your choice (1-6): 1
+Total sleep hours: 54.7
+What data would you like to see?
+1. Total sleep hours
+2. Average sleep hours
+3. Minimum sleep hours
+4. Maximum sleep hours
+5. Show Data
+6. Quit
+Enter your choice (1-6): 2
+Average sleep hours: 7.814285714285714
+You got the optimal amount of sleep this week! Keep it up!
+What data would you like to see?
+1. Total sleep hours
+2. Average sleep hours
+3. Minimum sleep hours
+4. Maximum sleep hours
+5. Show Data
+6. Quit
+Enter your choice (1-6): 5
+Here is your sleep data for the week:
+Try and find patterns in your sleep!
+Day 1: 8.5
+Day 2: 7.0
+Day 3: 9.0
+Day 4: 6.5
+Day 5: 8.0
+Day 6: 7.5
+Day 7: 8.2
+
+What data would you like to see?
+1. Total sleep hours
+2. Average sleep hours
+3. Minimum sleep hours
+4. Maximum sleep hours
+5. Show Data
+6. Quit
+Enter your choice (1-6): 6
+Goodbye!
 ```
 
 ## Project Structure
