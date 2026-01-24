@@ -78,7 +78,7 @@ public class App {
                 System.out.println("Maximum sleep hours: " + data.getMax());
                 // Personalized message based on highest sleep night
                 if (data.getMax() > 12) {
-                    System.out.println("You are oversleeping! Please make sure you aren't procrasinating or being too lazy!");
+                    System.out.println("You are oversleeping! Please make sure you aren't procrastinating or being too lazy!");
                 } else if (data.getMax() >= 7) {
                     System.out.println("Great job on getting enough sleep!");
                 } else {

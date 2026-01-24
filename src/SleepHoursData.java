@@ -9,6 +9,7 @@
  * sleep hours for the week. All data is stored internally and protected from
  * external modification through deep copy implementation.
  */
+
 public class SleepHoursData {
 
     // Instance variable that stores sleep hours for each day of the week
