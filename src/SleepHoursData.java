@@ -65,6 +65,15 @@ public class SleepHoursData {
         }
         // Divide total hours by number of days to get average
         double average = getTotal() / sleepHours.length;
+        System.out.println("Average sleep hours: " + average);
+        // Provide personalized feedback based on average sleep hours
+        if (average < 6) {
+            System.out.println("You should try to get more sleep next week!");
+        } else if (average <= 9) {
+            System.out.println("You got the optimal amount of sleep this week! Keep it up!");
+        } else {
+            System.out.println("You slept a lot this week! Make sure you are using your time wisely!");
+        }
         return average;
     }
 
@@ -87,6 +96,15 @@ public class SleepHoursData {
                 max = value;
             }
         }
+        System.out.println("Maximum sleep hours: " + max);
+        // Provide personalized feedback based on maximum sleep hours
+        if (max > 12) {
+            System.out.println("You are oversleeping! Please make sure you aren't procrastinating or being too lazy!");
+        } else if (max >= 7) {
+            System.out.println("Great job on getting enough sleep!");
+        } else {
+            System.out.println("Try to get more sleep on your best days!");
+        }
         return max;
     }
 
@@ -100,6 +118,7 @@ public class SleepHoursData {
     public double getMin() {
         // Handle empty array case
         if (sleepHours.length == 0) {
+            System.out.println("This is really dangerous!!! Go to sleep now!");
             return 0.0;
         }
         // Initialize min with first value and compare against all others
@@ -109,6 +128,16 @@ public class SleepHoursData {
                 min = value;
             }
         }
+        System.out.println("Minimum sleep hours: " + min);
+        // Provide personalized feedback based on minimum sleep hours
+        if (min < 4) {
+            System.out.println("This is very unhealthy. Try managing your time better");
+        } else if (min <= 7) {
+            System.out.println("Try getting more sleep on your low days.");
+        } else {
+            System.out.println("Nice job, you are maintaining a good sleep schedule!");
+        }
+        
         return min;
     }
 
@@ -130,6 +159,8 @@ public class SleepHoursData {
         for (int i = 0; i < sleepHours.length; i++) {
             sb.append("Day ").append(i + 1).append(": ").append(sleepHours[i]).append("\n");
         }
+        System.out.println("Here is your sleep data for the week:\nTry and find patterns in your sleep!");
+        System.out.println(sb.toString());
         return sb.toString();
     }
 }
